@@ -1,0 +1,4 @@
+input_dir,output_dir,save_output
+./path/to/input_dir1/,./path/to/output_dir1/,True
+./path/to/input_dir2/,./path/to/output_dir2/,False
+./path/to/input_dir3/,./path/to/output_dir3/,True

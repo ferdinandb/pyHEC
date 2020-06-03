@@ -54,10 +54,10 @@ def read_csv(config_file: Union[PathLike, str, bytes], **kwargs) -> pd.DataFrame
 
     :return: A pandas data frame with the structure of the CSV file
     """
-    return pd.read_csv(config_file, header=1, **kwargs)
+    return pd.read_csv(config_file, header=0, **kwargs)
 
 
-def yaml2csv(yaml_file: Union[PathLike, str, bytes], output_file: Union[PathLike, str, bytes], **kwargs) -> bool:
+def yaml2csv(yaml_file: Union[PathLike, str, bytes], output_file: Union[PathLike, str, bytes], **kwargs) -> None:
     """
     Converts a YAML file to a CSV file that can be used as a template.
 
@@ -66,5 +66,4 @@ def yaml2csv(yaml_file: Union[PathLike, str, bytes], output_file: Union[PathLike
 
     :return: Returns True when the CSV file was saved.
     """
-    pd.DataFrame(read_yaml(yaml_file)).to_csv(output_file, index=False, **kwargs)
-    return True
+    pd.Series(read_yaml(yaml_file)).to_frame().T.to_csv(output_file, index=False, **kwargs)

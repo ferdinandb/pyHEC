@@ -1,0 +1,10 @@
+# This YAML file contains a very basic example
+
+# A random parameter
+input_dir: './path/to/input_dir/'
+
+# Another parameter
+output_dir: './path/to/output_dir/'
+
+# One more parameter
+save_output: True

@@ -1,4 +1,5 @@
 # pyHEC
+
 **pyHEC** is a Python package that facilitates the use of the university's high-end computing (HEC) cluster. It provides tools to easily parallelize code execution on both a local computer and a multi-node computing cluster.
 
 pyHEC is optimized for Lancaster University's HEC cluster. Please refer to the [ISS help page](https://answers.lancaster.ac.uk/display/ISS/High+End+Computing+(HEC)+help) to find out more about the cluster.
@@ -36,16 +37,16 @@ The YAML file is more helpful when developing a first prototype of the model as 
 
 ````python
 config = c.read_yaml('./data/single-model-run.yaml')
-print(f'Output destination as defined in the YAML file: {config['output_path']}')
+print(f'Output destination as defined in the YAML file: {config["output_dir"]}')
 ````
 
-When working with the HEC, we want to run multiple models in one job submission. This can be achieved by either saving multiple YAML files and looping over them (see [examples](https://github.com/ferdinandb/pyHEC/#)) or by using a single CSV file. The CSV file can be saved either locally or remotely such as on network or shared drives (e.g., Google Drive, OneDrive, etc.).
+When working with the HEC, we want to run multiple models in one job submission. This can be achieved by either saving multiple YAML files and looping over them (see [examples](https://github.com/ferdinandb/pyHEC/tree/master/examples/config)) or by using a single CSV file. The CSV file can be saved either locally or remotely such as on network or shared drives (e.g., Google Drive, OneDrive, etc.).
 
 ````python
-configs = c.read_csv('https://raw.github.com/ferdinandb/pyHEC/examples/config/data/')
+configs = c.read_csv('https://github.com/ferdinandb/pyHEC/raw/master/examples/config/data/multiple-model-runs.csv')
 
 for config in configs:
-    print(f'Output destination: {config['output_path']}')
+    print(f'Output destination: {config["output_dir"]}')
 ````
 
 More examples can be found [here](https://github.com/ferdinandb/pyHEC/#).
@@ -55,11 +56,12 @@ More examples can be found [here](https://github.com/ferdinandb/pyHEC/#).
 
 Python defaults to using one CPU core when executing code. This behaviour is caused by the global interpreter lock (GIL) that limits the Python interpreter to using only one core. Such behavior is counterproductive for high-performance computing (HPC) and limits the scope of research projects that are computational demanding. This module offers an easy (and slightly naive) way to bypass the GIL to executed the code in parallel on multiple CPU cores.
 
-The parallel-processing module works "out of the box" on both local machines and HPC clusters. The approach is insofar naive as it represents a balance between easy usability and high processing efficiency. The solution should work for most research tasks and obviously lacks performance-wise in comparison with specifically HPC optimized applications.
-
+The parallel-processing module works "out of the box" on both local machines and HPC clusters. The module can be integrated quickly and does not require significant code changes or a deep understanding of parallel processing. The approach represents a balance between easy usability and high processing efficiency. As such, its application is fairly naive and limited to the parallelization of lists. The solution works for most research tasks and obviously lacks in performance compared to optimized HPC applications. 
+ 
 Run the command to import the parallel processing module.
 
 ````python
 from pyhec import parallel_processing as pp
 ````
 
+There are two options when using the parallel processing module. Both options bypass the GIL and can speed up the code execution significantly. While the first option is relatively easy to implement, it only works on a single computing node. It is ideal for local development and works out of the box on both local machines and computing clusters. No additional installations are required. The increase in processing speed is limited by the maximum number of cores of the given computing node (something around 8 to 64 cores). For most applications, such increase in speed should already be sufficient. The second option requires a HPC cluster and works over multiple nodes (this option is still in development).
