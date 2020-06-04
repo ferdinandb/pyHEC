@@ -19,7 +19,7 @@ import os
 import pandas as pd
 
 
-def read_yaml(config_file: Union[PathLike, str, bytes],
+def read_yaml(config_file: Union[str, PathLike],
               as_list: Optional[bool] = False) -> Union[Dict, List]:
     """
     Loads a YAML file and returns the model parameters as key-value pairs.
@@ -43,7 +43,7 @@ def read_yaml(config_file: Union[PathLike, str, bytes],
     return [items] if as_list else items
 
 
-def read_csv(config_file: Union[PathLike, str, bytes], **kwargs) -> pd.DataFrame:
+def read_csv(config_file: Union[str, PathLike], **kwargs) -> pd.DataFrame:
     """
     Loads a CSV file that contains the parameter keys in the header and the parameter
     values in the following rows (hence, one row equals one model run).
@@ -57,7 +57,7 @@ def read_csv(config_file: Union[PathLike, str, bytes], **kwargs) -> pd.DataFrame
     return pd.read_csv(config_file, header=0, **kwargs)
 
 
-def yaml2csv(yaml_file: Union[PathLike, str, bytes], output_file: Union[PathLike, str, bytes], **kwargs) -> None:
+def yaml2csv(yaml_file: Union[str, PathLike], output_file: Union[str, PathLike], **kwargs) -> None:
     """
     Converts a YAML file to a CSV file that can be used as a template.
 
