@@ -1,6 +1,6 @@
 # pyHEC
 
-**pyHEC** is a Python package that facilitates the use of the university's high-end computing (HEC) cluster. It provides tools to easily parallelize code execution on both a local computer and a multi-node computing cluster.
+**pyHEC** is a Python package that facilitates the use of the university's high-end computing (HEC) cluster. It provides higher-level tools to easily parallelize code execution on both a local computer and a multi-node computing cluster. The tool aims to compile the functionality of popular Python packages to accomplish common tasks without requiring a deep understanding of all the technical aspects of high-performance computing (HPC).
 
 pyHEC is optimized for Lancaster University's HEC cluster. Please refer to the [ISS help page](https://answers.lancaster.ac.uk/display/ISS/High+End+Computing+(HEC)+help) to find out more about the cluster.
 
@@ -54,7 +54,7 @@ More examples can be found [here](https://github.com/ferdinandb/pyHEC/#).
 
 ### Parallel processing module
 
-Python defaults to using one CPU core when executing code. This behaviour is caused by the global interpreter lock (GIL) that limits the Python interpreter to using only one core. Such behavior is counterproductive for high-performance computing (HPC) and limits the scope of research projects that are computational demanding. This module offers an easy (and slightly naive) way to bypass the GIL to executed the code in parallel on multiple CPU cores.
+Python defaults to using one CPU core when executing code. This behaviour is caused by the global interpreter lock (GIL) that limits the Python interpreter to using only one core. Such behavior is counterproductive for HPC and limits the scope of research projects that are computational demanding. This module offers an easy (and slightly naive) way to bypass the GIL to executed the code in parallel on multiple CPU cores.
 
 The parallel-processing module works "out of the box" on both local machines and HPC clusters. The module can be integrated quickly and does not require significant code changes or a deep understanding of parallel processing. The approach represents a balance between easy usability and high processing efficiency. As such, its application is fairly naive and limited to the parallelization of lists. The solution works for most research tasks and obviously lacks in performance compared to optimized HPC applications. 
  
