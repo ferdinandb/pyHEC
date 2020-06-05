@@ -52,7 +52,7 @@ def read_csv(config_file: Union[str, PathLike], **kwargs) -> pd.DataFrame:
         different model runs.
     :param kwargs: See Pandas documentation for a list of available parameters.
 
-    :return: A pandas data frame with the structure of the CSV file
+    :return: A pandas DataFrame with the structure of the CSV file
     """
     return pd.read_csv(config_file, header=0, **kwargs)
 
