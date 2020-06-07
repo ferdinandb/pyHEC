@@ -49,20 +49,23 @@ def parallelize(func: Callable,
 
     :return: Returns either a list or a pandas DataFrame with the returned values of func.
     """
-    if n_cores == 'max':
-        n_cores = None  # Run with maximum number of CPU cores if desired
+    if n_cores == 'max' or n_cores is None:
+        n_cores = cpu_count()  # Run with maximum number of CPU cores if desired
 
-    # Create 4x more chunks than CPU cores on the system (improves handling of data)
-    factor = 4 if len(iterable) > (cpu_count() * 4) else 1
-    iterable = np.array_split(iterable, cpu_count() * factor)
+    # Create 2x more chunks than CPU cores on the system (improves handling of data)
+    factor = 2 if len(iterable) > (n_cores * 4) else 1
+    iterable = np.array_split(iterable, n_cores * factor)
 
     # Use the map() function to batch-process a large number of items. This approach is
     # preferred to using starmap() or apply() as it is more efficient when working with
     # huge amounts of data. We convert func to a partial object with the keyword arguments
     # **kwargs. The iterable will be passed as the first positional argument. In practice,
     # this should accommodate all potential research applications/needs.
+    if len(kwargs):
+        func = partial(func, **kwargs)
+
     p = Pool(n_cores)
-    output = p.map(partial(func, **kwargs), iterable)
+    output = p.map(func, iterable)
     p.close()
     p.join()
 
