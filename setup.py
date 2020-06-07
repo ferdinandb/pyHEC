@@ -14,9 +14,9 @@ setup(
     url='https://github.com/ferdinandb/pyHEC',
     python_requires='>=3.6',
     install_requires=[
-        'yaml',
         'pandas>=0.19.2',
-        'numpy'
+        'numpy',
+        'pyyaml'
     ],
     packages=find_packages(include=['pyhec', 'pyhec.*']),
     classifiers=[

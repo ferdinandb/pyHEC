@@ -1,4 +1,7 @@
+# pyHEC facilitates the use of a university's high-end computing cluster (HEC)
 
-from pyhec.core import config
-from pyhec.core import job_submission
-from pyhec.core import parallel_processing
+from pyhec.core import (
+    config,
+    job_submission,
+    parallel_processing,
+)

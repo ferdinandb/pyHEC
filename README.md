@@ -4,7 +4,6 @@
 
 pyHEC is optimized for Lancaster University's HEC cluster. Please refer to the [ISS help page](https://answers.lancaster.ac.uk/display/ISS/High+End+Computing+(HEC)+help) to find out more about the cluster.
 
----
 
 ## Documentation
 
