@@ -3,6 +3,7 @@
 Using parameters in models allows for the quick testing of different assumptions. Rather than hard-coding values or setting a battery of variables at the beginning of a file, this module provides an easy solution to loading the parameter values from different sources. 
 
 ## Import module
+
 Run the command to import the config module.
 
 ```python
