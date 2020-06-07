@@ -41,7 +41,7 @@ Only run `pp.parallelize` within the `if name == 'main'` statement. Not doing so
 * `**kwargs`
   * Optional arguments for func. 
 * **`Return` List, pandas.DataFrame**
-  * Returns either a list or a pandas DataFrame with the results of func.
+  * Returns either a list or a pandas DataFrame with the results of func. 
 
 The function takes a list \(`iterable`\), splits it into multiple chunks and submits the chunks to `func`. As such, you need a for-loop to process the items per chunk. Please see an example below.
 
@@ -68,7 +68,7 @@ The CSV files must have the same structure, i.e. they must have the same column 
 * `**kwargs` 
   * Optional keyword arguments for pandas DataFrame.read\_csv\(\) function. See the [pandas docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) for more information. 
 * **`Return` pandas.DataFrame**
-  * A pandas DataFrame with the concatenated contents of the CSV files.
+  * A pandas DataFrame with the concatenated contents of the CSV files. 
 
 The following example can be found [here](https://github.com/ferdinandb/pyHEC/blob/master/examples/parallel-processing/batch-load-csv-files.py). It shows how to load multiple CSV files with just one line of code.
 
