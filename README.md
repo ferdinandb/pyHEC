@@ -15,41 +15,12 @@ pyHEC aims to automatize these tasks in the background. The package consists of 
 
 The Python package is hosted on GitHub and can be installed with the following pip command.
 
-````shell script
+```shell script
 pip install git+https://github.com/ferdinandb/pyHEC.git@master#egg=pyhec
-````
+```
 
 Not all modules of pyHEC might be of same interest in a project. As such, it is recommended to only load the corresponding module as shown below. Please also refer to the [examples](https://github.com/ferdinandb/pyHEC/#) to see further applications and use cases of the different modules.
 
-### Config module
-
-Using parameters in models allows the quick testing of different assumptions. Rather than hard-coding values or setting a battery of variables at the beginning of a file, this module provides an easy solution to loading the parameter values from different sources. 
-
-Run the command to import the config module.
-
-````python
-from pyhec import config as c
-````
-
-The set of parameter values can be provided in individual YAML files (one file equals one model run) or in one consolidated CSV file (one row equals a model run). This way, one code execution can run several models one after another.
-
-The YAML file is more helpful when developing a first prototype of the model as it is a more structured way of storing and describing the parameter. The following example shows the use of a YAML file to run one model.
-
-````python
-config = c.read_yaml('./data/single-model-run.yaml')
-print(f'Output destination as defined in the YAML file: {config["output_dir"]}')
-````
-
-When working with the HEC, we want to run multiple models in one job submission. This can be achieved by either saving multiple YAML files and looping over them (see [examples](https://github.com/ferdinandb/pyHEC/tree/master/examples/config)) or by using a single CSV file. The CSV file can be saved either locally or remotely such as on network or shared drives (e.g., Google Drive, OneDrive, etc.). This way, you can run multiple models by simply updating the remote CSV file without changing anything on the HEC.
-
-````python
-configs = c.read_csv('https://github.com/ferdinandb/pyHEC/raw/master/examples/config/data/multiple-model-runs.csv')
-
-for config in configs:
-    print(f'Output destination: {config["output_dir"]}')
-````
-
-More examples can be found [here](https://github.com/ferdinandb/pyHEC/tree/master/examples/config).
 
 
 ### Parallel processing module
@@ -60,9 +31,9 @@ The parallel-processing module works "out of the box" on both local machines and
  
 Run the command to import the parallel processing module.
 
-````python
+```python
 from pyhec import parallel_processing as pp
-````
+```
 
 There are two options when using the parallel processing module. Both options bypass the GIL and can speed up the code execution significantly. While the first option is relatively easy to implement, it only works on a single computing node. It is ideal for local development and works out of the box on both local machines and computing clusters. No additional installations are required. The increase in processing speed is limited by the maximum number of cores of the given computing node (probably something around 8 to 64 cores). For most applications, such increase in speed should already be sufficient. The second option requires a HPC cluster and works with multiple nodes (this option is still in development).
 
