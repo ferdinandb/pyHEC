@@ -18,6 +18,15 @@ from pyhec import config as c
 
 ## `read_yaml()`
 
+**`c.read_yaml`**`(config_file, as_list)`
+
+* `config_file` **str, PathLike**
+  * The YAML config file that contains all relevant parameter values for the current model run. 
+* `as_list` **bool, default: True**
+  * By default, the function returns a single set of parameter values. Setting as\_list True returns a list of length one instead. This equals to loading a CSV file with only one row and allows to test the code for production. Setting as\_list True requires a YAML file with only one hierarchy level. 
+* **`Return`** **Dict, List**
+  * A dictionary with one set of parameters, i.e., values for one model run.
+
 The YAML file is more helpful when developing a first prototype of the model as it is a more structured way of storing and describing the parameter. The following example shows the use of a YAML file to run one model.
 
 ```python
@@ -29,12 +38,39 @@ print('Output destination: ' + config['output_dir'])
 
 When working with the HEC, we want to run multiple models in one job submission. This can be achieved by either saving multiple YAML files and looping over them \(see [examples](https://github.com/ferdinandb/pyHEC/tree/master/examples/config)\) or by using a single CSV file. The CSV file can be saved either locally or remotely such as on network or shared drives \(e.g., Google Drive, OneDrive, etc.\). This way, you can run multiple models by simply updating the remote CSV file without changing anything on the HEC.
 
+**`c.read_csv`**`(config_file, **kwargs)`
+
+* `config_file` **str, PathLike**
+  * The CSV file that contains all relevant parameter values for the different model runs. 
+* `**kwargs`
+  * See the [Pandas docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) for a list of available parameters. 
+* **`Return`** **pandas.DataFrame**
+  * A pandas DataFrame with the structure of the CSV file
+
 ```python
 configs = c.read_csv('https://github.com/ferdinandb/pyHEC/raw/master/examples/config/data/multiple-model-runs.csv')
 
 for config in configs:
     print('Output destination: ' + config['output_dir'])
 ```
+
+## `yaml2csv()`
+
+Converts a YAML file to a CSV file that can be used as a template.
+
+{% hint style="warning" %}
+Converting a YAML file to a CSV file requires a YAML file with only one hierarchy level.
+{% endhint %}
+
+**`c.yaml2csv`**`(yaml_file, output_file, **kwargs)`
+
+* `yaml_file` **str, PathLike**
+  * The location of the YAML file. 
+* `output_file` **str, PathLike**
+  * The location where the CSV file should be saved. 
+* `**kwargs`
+  * See the [Pandas docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) for a list of available parameters. 
+* **`Return`** **None**
 
 ## Examples
 
