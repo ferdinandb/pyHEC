@@ -97,3 +97,7 @@ if __name__ == '__main__':
 ```
 {% endcode %}
 
+## Examples
+
+More examples can be found on [GitHub](https://github.com/ferdinandb/pyHEC/tree/master/examples/parallel-processing) or in the examples section.
+
