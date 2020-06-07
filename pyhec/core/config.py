@@ -52,7 +52,7 @@ def read_csv(config_file: Union[str, PathLike], **kwargs) -> pd.DataFrame:
         different model runs.
     :param kwargs: See Pandas documentation for a list of available parameters.
 
-    :return: A pandas DataFrame with the structure of the CSV file
+    :return: A pandas DataFrame with the structure of the CSV file.
     """
     return pd.read_csv(config_file, header=0, **kwargs)
 
@@ -63,7 +63,8 @@ def yaml2csv(yaml_file: Union[str, PathLike], output_file: Union[str, PathLike],
 
     :param yaml_file: The location of the YAML file.
     :param output_file: The location where the CSV file should be saved.
+    :param kwargs: See Pandas documentation for a list of available parameters.
 
-    :return: Returns True when the CSV file was saved.
+    :return: None
     """
     pd.Series(read_yaml(yaml_file)).to_frame().T.to_csv(output_file, index=False, **kwargs)

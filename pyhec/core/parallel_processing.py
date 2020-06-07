@@ -37,14 +37,14 @@ def parallelize(func: Callable,
     the number of CPU cores on the executing machine. Please see the docs when using more
     than one computing node (a bit more complex).
 
-    :param func: The function that should be used to process iterable.
+    :param func: The function that will be executed in parallel to process iterable.
     :param iterable: A list, a NumPy array or a pandas DataFrame that should be processed
         in parallel.
     :param n_cores: The number of worker processes, i.e., the number of desired vCPU cores,
         to use when running the function func. Setting n_cores to None returns the maximum
         number of vCPU cores of the machine as defined be os.cpu_count().
     :param return_as: The multiprocessing module returns a list by default. If, however,
-        the return value is supposed to be a pandas DataFrame, set the value to 'dataframe'
+        the return value is supposed to be a pandas DataFrame, set the value to 'dataframe'.
     :param kwargs: Optional arguments for func.
 
     :return: Returns either a list or a pandas DataFrame with the returned values of func.
