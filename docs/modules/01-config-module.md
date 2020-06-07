@@ -49,7 +49,11 @@ Loads a CSV file that contains the parameter keys in the header and the paramete
 * **`Return`** **pandas.DataFrame**
   * A pandas DataFrame with the structure of the CSV file. 
 
-When working with the HEC, we want to run multiple models in one job submission. This can be achieved by either saving multiple YAML files and looping over them \(see [examples](https://github.com/ferdinandb/pyHEC/tree/master/examples/config)\) or by using a single CSV file. The CSV file can be saved either locally or remotely such as on network or shared drives \(e.g., Google Drive, OneDrive, etc.\). This way, you can run multiple models by simply updating the remote CSV file without changing anything on the HEC.
+When working with the HEC, we want to run multiple models in one job submission. This can be achieved by either saving multiple YAML files and looping over them \(see [examples](https://github.com/ferdinandb/pyHEC/tree/master/examples/config)\) or by using a single CSV file. The CSV file can be saved either locally or remotely such as on network or shared drives \(e.g., Google Drive, OneDrive, etc.\).
+
+{% hint style="info" %}
+**Tip:** Using a remote file allows you to run multiple models by simply updating the remote CSV file without changing files on the HEC.
+{% endhint %}
 
 ```python
 configs = c.read_csv('https://github.com/ferdinandb/pyHEC/raw/master/examples/config/data/multiple-model-runs.csv')
@@ -75,6 +79,10 @@ Converting a YAML file to a CSV file requires a YAML file with only one hierarch
 * `**kwargs`
   * See the [Pandas docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) for a list of available parameters. 
 * **`Return`** **None**
+
+{% hint style="info" %}
+**Tip:** Start developing with a YAML file. It is more structured and allows the addition of comments per parameter. Convert the YAML file to a CSV file when you are ready to deploy your code.
+{% endhint %}
 
 ## Examples
 
