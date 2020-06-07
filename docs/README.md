@@ -15,7 +15,7 @@ This documentation contains explanations for the available modules and functions
 The Python package is hosted on GitHub and can be installed with the following pip command.
 
 ```bash
-pip install -e git+https://github.com/ferdinandb/pyHEC.git@master#egg=pyhec
+pip install git+https://github.com/ferdinandb/pyHEC.git@master#egg=pyhec
 ```
 
 The Python package can be imported as follows
