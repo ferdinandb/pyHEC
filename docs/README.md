@@ -6,15 +6,30 @@ pyHEC aims to automatize these tasks in the background. The package consists of 
 
 This documentation contains explanations for the available modules and functions, and provides several examples and use cases.
 
+{% hint style="info" %}
+**Tip:** The different modules can be loaded independently of each other. Please see code below.
+{% endhint %}
+
 ## Installing and loading pyHEC
 
 The Python package is hosted on GitHub and can be installed with the following pip command.
 
-\`\`\`shell script pip install git+[https://github.com/ferdinandb/pyHEC.git@master\#egg=pyhec](https://github.com/ferdinandb/pyHEC.git@master#egg=pyhec)
+```bash
+pip install git+https://github.com/ferdinandb/pyHEC.git@master#egg=pyhec
+```
 
-\`\`\`
+The Python package can be imported as follows
 
-Not all modules of pyHEC might be of same interest in a project. As such, it is recommended to only load the corresponding module as shown below. Please see the sections on the left for further details.
+```python
+import pyhec as hec
+```
+
+Not all modules of pyHEC might be of same interest in a project. As such, it is recommended to only load the corresponding module as shown below.
+
+```python
+from pyhec import config as c
+from pyhec import parallel_processing as pp
+```
 
 ## Additional notes
 
