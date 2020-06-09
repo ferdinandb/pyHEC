@@ -7,4 +7,4 @@ pyHEC is optimized for Lancaster University's HEC cluster. Please refer to the [
 
 ## Documentation
 
-See [docs](https://ferdinandb.gitbook.io/pyhec/).
+See [docs](https://pyhec.gitbook.io/pyhec/).
