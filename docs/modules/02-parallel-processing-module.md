@@ -1,6 +1,6 @@
 # Parallel processing module
 
-By default, Python uses one CPU core when executing code. This behaviour is caused by the global interpreter lock \(GIL\) that limits the Python interpreter to using only one core. Such behavior is counterproductive for high-performance computing \(HPC\) applications and limits the scope of research projects that are computational demanding. This module offers an easy \(and slightly naive\) way to bypass the GIL to executed the code in parallel on multiple CPU cores.
+By default, Python uses one CPU core when executing code. This behaviour is caused by the global interpreter lock \(GIL\) that limits the Python interpreter to using only one core. Such behavior is counterproductive for high-performance computing \(HPC\) applications and limits the scope of research projects that are computational demanding. This module offers an easy \(and slightly naive\) way to bypass the GIL to execute the code in parallel on multiple CPU cores.
 
 The parallel-processing module works "out of the box" on both local machines and HPC clusters. The module can be integrated quickly and does not require significant code changes or a deep understanding of parallel processing. The approach represents a balance between easy usability and high processing efficiency. The solution works for most research tasks. It lacks in performance compared to optimized HPC applications. See the examples for different use cases of the parallel processing module.
 
