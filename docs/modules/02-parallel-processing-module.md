@@ -89,9 +89,9 @@ from pyhec import parallel_processing as pp
 
 
 if __name__ == '__main__':
-    
+
     df = pp.batch_read_csv('./data/*.csv', error_bad_lines=False)
-    
+
     print(f'Loaded {len(df)} CSV files. See head() below:')
     print(df.head())
 ```
