@@ -43,13 +43,13 @@ Loads a CSV file that contains the parameter keys in the header and the paramete
 **`c.read_csv`**`(config_file, **kwargs)`
 
 * `config_file` **str, PathLike**
-  * The CSV file that contains all relevant parameter values for the different model runs. 
+  * The CSV file, which contains all relevant parameter values for the different model runs. 
 * `**kwargs`
   * See the [Pandas docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html) for a list of available parameters. 
 * **`Return`** **pandas.DataFrame**
   * A pandas DataFrame with the structure of the CSV file. 
 
-When working with the HEC, we want to run multiple models in one job submission. This can be achieved by either saving multiple YAML files and looping over them \(see [examples](https://github.com/ferdinandb/pyHEC/tree/master/examples/config)\) or by using a single CSV file. The CSV file can be saved either locally or remotely such as on network or shared drives \(e.g., Google Drive, OneDrive, etc.\).
+When working with the HEC, we want to run multiple models in one job submission. This can be achieved by either saving multiple YAML files and looping over them \(see [examples](https://github.com/ferdinandb/pyHEC/tree/master/examples/config)\) or by using a single CSV file. The CSV file can be saved either locally or remotely such as on a network or shared drives \(e.g., Google Drive, OneDrive, etc.\).
 
 {% hint style="info" %}
 **Tip:** Using a remote file allows you to run multiple models by simply updating the remote CSV file without changing files on the HEC.

@@ -1,12 +1,12 @@
 # Parallel processing module
 
-By default, Python uses one CPU core when executing code. This behaviour is caused by the global interpreter lock \(GIL\) that limits the Python interpreter to using only one core. Such behavior is counterproductive for high-performance computing \(HPC\) applications and limits the scope of research projects that are computational demanding. This module offers an easy \(and slightly naive\) way to bypass the GIL to execute the code in parallel on multiple CPU cores.
+By default, Python uses one CPU core when executing code. This behavior is caused by the global interpreter lock \(GIL\) that limits the Python interpreter to using only one core. Such behavior is counterproductive for high-performance computing \(HPC\) applications and limits the scope of research projects that are computational demanding. This module offers an easy \(and slightly naive\) way to bypass the GIL to execute the code in parallel on multiple CPU cores.
 
 The parallel-processing module works "out of the box" on both local machines and HPC clusters. The module can be integrated quickly and does not require significant code changes or a deep understanding of parallel processing. The approach represents a balance between easy usability and high processing efficiency. The solution works for most research tasks. It lacks in performance compared to optimized HPC applications. See the examples for different use cases of the parallel processing module.
 
-There are two options when using the parallel processing module. Both options bypass the GIL and can speed up the code execution significantly. While the first option is relatively easy to implement, it only works on a single computing node. It is ideal for local development and works out of the box on both local machines and computing clusters. No additional installations are required. The increase in processing speed is limited by the maximum number of cores of the given computing node \(probably something around 8 to 64 cores\). For most applications, such increase in speed should already be sufficient.
+There are two options when using the parallel processing module. Both options bypass the GIL and can speed up the code execution significantly. While the first option is relatively easy to implement, it only works on a single computing node. It is ideal for local development and works out of the box on both local machines and computing clusters. No additional installations are required. The increase in processing speed is limited by the maximum number of cores of the given computing node \(probably something around 8 to 64 cores\). For most applications, such an increase in speed should already be sufficient.
 
-The second option requires a HPC cluster and works with multiple nodes. This option is still in development and will follow soon.
+The second option requires an HPC cluster and works with multiple nodes. This option is still in development and will follow soon.
 
 {% hint style="info" %}
 **Tip:** The first option is likely to be the default case for most applications. Refer to the examples for more information.
@@ -33,7 +33,7 @@ Only run `pp.parallelize` within the `if name == 'main'` statement. Not doing so
 * `func` **Callable**
   * The function that will be executed in parallel to process iterable. 
 * `iterable` **List, numpy.array, pands.DataFrame**
-  * A list, NumPy array or pandas DataFrame that should be processed in parallel. 
+  * A list, NumPy array, or pandas DataFrame that should be processed in parallel. 
 * `n_core` **int, str, None, default: None**
   * The number of worker processes, i.e., the number of desired vCPU cores, to use when running the function func. Setting n\_cores to None returns the maximum number of vCPU cores of the machine as defined be os.cpu\_count\(\). 
 * `return_as` **str, default: 'list'**
@@ -43,7 +43,7 @@ Only run `pp.parallelize` within the `if name == 'main'` statement. Not doing so
 * **`Return` List, pandas.DataFrame**
   * Returns either a list or a pandas DataFrame with the results of func. 
 
-The function takes a list \(`iterable`\), splits it into multiple chunks and submits the chunks to `func`. As such, you need a for-loop to process the items per chunk. Please see an example below.
+The function takes a list \(`iterable`\), splits it into multiple chunks and submits the chunks to `func`. As such, you need a for-loop to process the items per chunk. Please see the example below.
 
 The following example can be found [here](https://github.com/ferdinandb/pyHEC/blob/master/examples/parallel-processing/batch-load-csv-files.py).
 

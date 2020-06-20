@@ -2,7 +2,7 @@
 
 While submitting a job is straight-forward, it is more challenging to set up a locally developed project on the cluster without code changes. Especially the duplication of local Python environments, a lack of automation when deploying the code and the technical aspects of parallelization might be perceived as the greatest bottlenecks.
 
-pyHEC aims to automatize these tasks in the background. The package consists of three main components: the config module, the parallel processing module and the HEC job submission generator.
+pyHEC aims to automatize these tasks in the background. The package consists of three main components: the config module, the parallel processing module, and the HEC job submission generator.
 
 This documentation contains explanations for the available modules and functions, and provides several examples and use cases.
 
@@ -24,7 +24,7 @@ The Python package can be imported as follows
 import pyhec as hec
 ```
 
-Not all modules of pyHEC might be of same interest in a project. As such, it is recommended to only load the corresponding module as shown below.
+Not all modules of pyHEC might be of the same interest to a project. As such, it is recommended to only load the corresponding module as shown below.
 
 ```python
 from pyhec import config as c
