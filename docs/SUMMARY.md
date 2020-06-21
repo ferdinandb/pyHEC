@@ -7,3 +7,8 @@
 * [Config module](modules/01-config-module.md)
 * [Parallel processing module](modules/02-parallel-processing-module.md)
 
+## Cloud/cluster
+
+* [Initial setup](cloud-cluster/initial-setup.md)
+* [Deploy project](cloud-cluster/deploy-project.md)
+
