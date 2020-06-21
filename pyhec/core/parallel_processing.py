@@ -2,17 +2,7 @@
 Parallel processing module
 --------------------------
 A convenient way of using the full CPU power when processing large amounts of data.
-
-Python defaults to using one CPU core when executing code. This behaviour is caused by the
-global interpreter lock (GIL) that limits the Python interpreter to using only one core.
-Such behavior is especially counterproductive for high-performance computing (HPC). This
-module offers an easy (and slightly naive) way to bypass the GIL to executed the code in
-parallel on multiple CPU cores.
-
-The parallel-processing module works "out of the box" on both local machines and HPC
-clusters. The approach is insofar naive as it represents a balance between easy usability
-and high processing efficiency. The solution should work for most research tasks and
-obviously lacks performance-wise in comparison with specifically HPC optimized applications.
+Read more: https://pyhec.gitbook.io/pyhec/modules/02-parallel-processing-module
 """
 
 from typing import Optional, List, Union, Callable

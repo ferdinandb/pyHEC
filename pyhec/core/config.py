@@ -2,13 +2,7 @@
 Config module
 -------------
 A convenient and simple way of working with parameters when running models.
-
-Using parameters in models allows the quick testing of different assumptions. Rather than
-hard-coding values or setting a battery of variables at the beginning of a file, this
-module provides an easy solution to loading the parameter values from external sources.
-The set of parameter values can be provided in individual YAML files (one file equals one
-model run) or in one consolidated CSV file (one row equals a model run). This way, one
-code execution can run several models (one after another).
+Read more: https://pyhec.gitbook.io/pyhec/modules/01-config-module
 """
 
 from typing import Optional, List, Dict, Union
