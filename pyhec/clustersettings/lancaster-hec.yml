@@ -1,0 +1,17 @@
+#
+# SETTINGS FILE
+# -------------
+# Lancaster HEC
+# https://answers.lancaster.ac.uk/display/ISS/High+End+Computing+%28HEC%29+help
+#
+
+# Remote server hostname
+hostname: wayland.hec.lancaster.ac.uk
+
+# Environment variables of the main file areas
+home_dir: HOME
+storage_dir: global_storage
+scratch_dir: global_scratch
+
+# Primary location for project uploads (home_dir, storage_dir, scratch_dir)
+project_dir: storage_dir
