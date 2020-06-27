@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setup(
     name='pyhec',
-    version='0.0.1',
+    version='0.0.2',
     author='Ferdinand Bratek',
     author_email='566392+ferdinandb@users.noreply.github.com',
     description='Python package that facilitates the use of the university\'s high-end computing cluster (HEC)',
@@ -16,7 +16,9 @@ setup(
     install_requires=[
         'pandas>=0.19.2',
         'numpy',
-        'pyyaml'
+        'pyyaml',
+        'paramiko',
+        'tqdm'
     ],
     packages=find_packages(include=['pyhec', 'pyhec.*']),
     classifiers=[
