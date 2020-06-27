@@ -2,7 +2,7 @@
 Parallel processing module
 --------------------------
 A convenient way of using the full CPU power when processing large amounts of data.
-Read more: https://pyhec.gitbook.io/pyhec/modules/02-parallel-processing-module
+Read more: https://pyhec.gitbook.io/pyhec/modules/parallel-processing-module
 """
 
 from typing import Optional, List, Union, Callable

@@ -2,7 +2,7 @@
 Config module
 -------------
 A convenient and simple way of working with parameters when running models.
-Read more: https://pyhec.gitbook.io/pyhec/modules/01-config-module
+Read more: https://pyhec.gitbook.io/pyhec/modules/config-module
 """
 
 from typing import Optional, List, Dict, Union
