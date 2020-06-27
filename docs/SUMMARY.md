@@ -4,8 +4,9 @@
 
 ## Modules
 
-* [Config module](modules/01-config-module.md)
-* [Parallel processing module](modules/02-parallel-processing-module.md)
+* [Config module](modules/config-module.md)
+* [Parallel processing module](modules/parallel-processing-module.md)
+* [Job submission](modules/job-submission.md)
 
 ## Cloud/cluster
 
