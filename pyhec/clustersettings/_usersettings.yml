@@ -1,0 +1,10 @@
+#
+# USER SETTINGS TEMPLATE
+# ----------------------
+# Default user settings
+#
+
+# SSH and SFTP settings
+cluster_id: cluster_identifier
+
+username: username
