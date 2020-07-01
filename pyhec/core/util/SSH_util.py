@@ -48,12 +48,12 @@ class ConnectSSH:
         Uploads a local file to the remote server via SFTP.
 
         :param local_file: path and filename of the local file to copy
-        :param remote_file: path and filename of the remote destination
+        :param remote_file: unix path and filename of the remote destination
         :param upload_desc: description next to the progress bar
         """
         sftp = self.ssh_client.open_sftp()
         with TqdmWrap(unit='b', unit_scale=True, desc=upload_desc) as pbar:
-            sftp.put(local_file, remote_file, callback=pbar.view_pbar)
+            sftp.put(local_file, remote_file.replace('\\', '/'), callback=pbar.view_pbar)
         sftp.close()
 
 
@@ -81,7 +81,7 @@ class ConnectSSH:
 
         # Echo the absolute path in the interactive shell session (the interactive shell
         # session is necessary to get all user-specific environment variables)
-        cmd = f'echo ${env_var}'
+        cmd = f'echo {env_var}'
         session.send(f'{cmd}\n')
         # Get the output and return the line following the initial echo command
         output = ret_output().splitlines()
@@ -92,7 +92,7 @@ class ConnectSSH:
             if line == cmd:
                 return_next_line = True
         # Worst case: no path found
-        ValueError(f'Unable to find path for ${env_var}')
+        ValueError(f'Unable to find path for {env_var}')
 
 
     def __del__(self):
